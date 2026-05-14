@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "0.1.0",
+  "name": "work-with-you",
+  "displayName": "AiPlus work-with-you",
+  "version": "0.4.0",
+  "source": "template",
+  "license": "Apache-2.0",
+  "kind": "profile-bundle-template",
+  "requiredFiles": [
+    "README.md",
+    "USER.md",
+    "MEMORY.md",
+    "profile.toml",
+    "AGENTS.profile.md",
+    "preferences/communication.md",
+    "preferences/engineering.md",
+    "preferences/ceo-and-review.md",
+    "preferences/tools-and-runtimes.md",
+    "preferences/privacy-and-secrets.md",
+    "identities/ceo.identity.toml",
+    "identities/advisor.identity.toml",
+    "identities/rust-lead.identity.toml",
+    "identities/runtime-qa.identity.toml",
+    "identities/security-reviewer.identity.toml",
+    "identities/reviewer.identity.toml",
+    "identities/builder.identity.toml",
+    "sync/policy.toml",
+    "sync/projects.toml",
+    "sync/promotion-rules.md",
+    "sync/conflict-and-staleness.md",
+    "sync/dogfood-matrix.md",
+    "sync/evidence-log.md",
+    "secret-aliases.tsv"
+  ],
+  "managedFiles": [
+    ".aiplus/manifest.json",
+    ".aiplus/AGENTS.aiplus.md",
+    ".aiplus/REFRESH_PROMPT.txt",
+    ".aiplus/identities",
+    ".aiplus/memory"
+  ],
+  "runtimeAdapters": [],
+  "installHints": [
+    "Fork this repository, fill in the [Your Name] / ~/your-workspace / [your-namespace] placeholders, then install with `aiplus profile install aiplus-work-with-you --user --yes`.",
+    "Profile content describes preferences. It does not grant permission for dangerous actions."
+  ],
+  "doctorChecks": [
+    {
+      "id": "profile-toml",
+      "path": "profile.toml",
+      "description": "Profile bundle manifest is present and parseable."
+    },
+    {
+      "id": "user-snapshot",
+      "path": "USER.md",
+      "description": "Owner profile snapshot is present."
+    },
+    {
+      "id": "memory-snapshot",
+      "path": "MEMORY.md",
+      "description": "Memory taxonomy snapshot is present."
+    },
+    {
+      "id": "sync-policy",
+      "path": "sync/policy.toml",
+      "description": "Cross-project sync policy is present and parseable."
+    }
+  ],
+  "publicPrivateBoundary": {
+    "status": "public-template",
+    "notes": [
+      "This template repository is public and Apache-2.0 licensed.",
+      "Users who fork and fill in personal content (USER.md, MEMORY.md, sync/projects.toml, secret-aliases.tsv with real namespace) are responsible for keeping their fork private.",
+      "Public AiPlus release assets must not bundle a personalized fork."
+    ]
+  },
+  "secretBoundary": {
+    "status": "forbidden",
+    "notes": [
+      "This template lists alias names only. Secret values live in the Owner's password manager.",
+      "Profile files must never contain API keys, machine tokens, auth headers, provider payloads, raw transcripts, .env contents, or private file paths."
+    ]
+  }
+}

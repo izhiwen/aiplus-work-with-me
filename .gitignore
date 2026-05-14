@@ -1,0 +1,10 @@
+.aiplus/
+.codex/
+.claude/
+.opencode/
+AGENTS.md
+*.log
+*.tmp
+.DS_Store
+target/
+node_modules/

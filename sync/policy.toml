@@ -1,0 +1,65 @@
+# Sync Policy
+# Cross-project sync rules and priority for the private profile hub.
+
+[automatic_sync]
+allow_when = [
+    "Owner explicitly says universal preference statements",
+    "Preference is stable, non-secret, non-project-specific, and reversible",
+    "Memory affects style, workflow, or context only",
+    "Does not authorize dangerous actions",
+]
+
+candidate_creation_when = [
+    "Same preference appears in two or more projects",
+    "Owner corrects the same behavior repeatedly",
+    "Project pattern looks reusable but needs abstraction",
+]
+
+keep_local_when = [
+    "Project fact (specific path, implementation detail, local bug, private customer data)",
+    "Project-specific decision",
+    "Would confuse other projects if generalized",
+]
+
+forbidden = [
+    "push/release/deploy approvals",
+    "secret access permission",
+    "external account permission",
+    "global config permission",
+    "raw logs/transcripts/checkpoints/provider payloads",
+    "private project files",
+]
+
+[priority]
+1 = "Current Owner message"
+2 = "Project AGENTS.md / project rules"
+3 = "Project-local .aiplus/memory"
+4 = "aiplus-work-with-you profile hub"
+5 = "Generic AiPlus guidance"
+6 = "Model defaults"
+
+[conflict_resolution]
+specific_beats_general = true
+newer_explicit_beats_older = true
+high_risk_becomes_blocked = true
+low_risk_log_conflict = true
+must_be_explainable = true
+must_be_reversible = true
+
+[taxonomy]
+global_preference = { sync = "profile_hub", auto_sync = true }
+global_workflow = { sync = "profile_hub", auto_sync = true }
+global_tooling_hint = { sync = "profile_hub", auto_sync = true }
+profile_context = { sync = "profile_hub_only", auto_sync = true }
+project_pattern = { sync = "profile_hub_candidate", auto_sync = "after_abstraction" }
+project_local = { sync = "project_local_only", auto_sync = false }
+role_contract = { sync = "profile_hub_identities", auto_sync = true }
+skill_candidate = { sync = "profile_hub_evidence_log", auto_sync = false }
+deny_memory = { sync = "nowhere", auto_sync = false }
+
+[reversibility]
+forget = "Owner says '忘掉这个'"
+supersede = "Newer explicit Owner correction"
+reject = "Owner says '不要记这个' or content is DENY_MEMORY"
+stale = "Unused for 6+ months"
+rollback = "Owner says '恢复之前的偏好'"

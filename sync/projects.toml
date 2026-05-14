@@ -1,0 +1,46 @@
+# Projects Registry (TEMPLATE)
+#
+# Local project registry for cross-project profile sync and dogfood
+# validation. Fork this template and replace the example projects with
+# your own absolute paths on your machine. Comments below the TOML body
+# explain the schema.
+
+[[project]]
+name = "AiPlus"
+path = "~/Projects/AiPlus"
+repos = ["aiplus-public", "aiplus-auto-compact", "aiplus-auto-team-consultant", "aiplus-agent-memory", "aiplus-work-with-you"]
+type = "product-ecosystem"
+profile_scope = "full"
+
+[[project]]
+name = "[your-product]"
+path = "~/Projects/[your-product]"
+type = "product"
+profile_scope = "global-preferences-only"
+
+[[project]]
+name = "[your-experiments]"
+path = "~/Projects/[your-experiments]"
+type = "sandbox"
+profile_scope = "global-preferences-only"
+
+# -----------------------------------------------------------------------------
+# Profile Scope Definitions
+#
+# - `full`: All profile hub content applies (preferences, identities, sync policy).
+# - `global-preferences-only`: Only GLOBAL_PREFERENCE, GLOBAL_WORKFLOW,
+#   GLOBAL_TOOLING_HINT apply. PROFILE_CONTEXT and ROLE_CONTRACT do not apply
+#   unless explicitly requested.
+# - `none`: Profile hub content does not apply; use project rules only.
+#
+# Project-Local Memory Path
+#
+# Each project should store local memory at `{project_path}/.aiplus/memory/`.
+# Project-local memory is not synced to the profile hub.
+#
+# Sync Boundaries
+#
+# - `full` scope projects: receive all profile hub content.
+# - `global-preferences-only` scope projects: receive only universal
+#   preferences. Project-specific identities and context do not apply.
+# - No project receives secret values, raw transcripts, checkpoints, or logs.

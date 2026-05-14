@@ -1,0 +1,77 @@
+name = "aiplus-work-with-you"
+compatibility_aliases = []
+version = "0.4.0"
+owner = "[Your Name]"
+secret_values = "never-store"
+subproduct = "public-template"
+
+[structure]
+readme = ["README.md", "README.zh-CN.md"]
+agents_profile = "AGENTS.profile.md"
+profile_toml = "profile.toml"
+user_snapshot = "USER.md"
+memory_snapshot = "MEMORY.md"
+preferences_dir = "preferences/"
+identities_dir = "identities/"
+sync_dir = "sync/"
+docs_dir = "docs/"
+security = "SECURITY.md"
+changelog = "CHANGELOG.md"
+secret_aliases = "secret-aliases.tsv"
+
+[structure.preferences]
+communication = "preferences/communication.md"
+engineering = "preferences/engineering.md"
+ceo_and_review = "preferences/ceo-and-review.md"
+tools_and_runtimes = "preferences/tools-and-runtimes.md"
+privacy_and_secrets = "preferences/privacy-and-secrets.md"
+
+[structure.identities]
+ceo = "identities/ceo.identity.toml"
+advisor = "identities/advisor.identity.toml"
+rust_lead = "identities/rust-lead.identity.toml"
+runtime_qa = "identities/runtime-qa.identity.toml"
+security_reviewer = "identities/security-reviewer.identity.toml"
+reviewer = "identities/reviewer.identity.toml"
+builder = "identities/builder.identity.toml"
+
+[structure.sync]
+policy = "sync/policy.toml"
+projects = "sync/projects.toml"
+promotion_rules = "sync/promotion-rules.md"
+conflict_and_staleness = "sync/conflict-and-staleness.md"
+dogfood_matrix = "sync/dogfood-matrix.md"
+evidence_log = "sync/evidence-log.md"
+
+[priority]
+current_owner_message = 1
+project_rules = 2
+project_local_memory = 3
+user_profile = 4
+aiplus_generic_guidance = 5
+model_defaults = 6
+
+[defaults]
+# Replace with your preferred language. Common values: "English", "Chinese", etc.
+owner_facing_language = "[your preferred language]"
+public_docs_language = "English-first"
+communication_style = "concise, conclusion-first, evidence-based"
+workflow_tier_default = "MEDIUM"
+
+[owner_gates]
+secret_values = "never print or persist"
+global_agent_config = "ask before changing"
+publication = "requires explicit Owner approval"
+push = "requires explicit Owner approval"
+tag = "requires explicit Owner approval"
+release = "requires explicit Owner approval"
+deploy = "requires explicit Owner approval"
+global_config = "requires explicit Owner approval"
+
+[boundaries]
+public_private_secret = "strict"
+profile_content_in_public_assets = "forbidden"
+secret_values_in_profile = "forbidden"
+raw_transcripts_in_profile = "forbidden"
+compact_checkpoints_in_profile = "forbidden"
+logs_in_profile = "forbidden"
