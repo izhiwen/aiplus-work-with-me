@@ -3,13 +3,13 @@
 Install:
 
 ```bash
-aiplus profile install aiplus-work-with-you --user --yes
+aiplus profile install aiplus-work-with-me --user --yes
 ```
 
 Dry run:
 
 ```bash
-aiplus profile install aiplus-work-with-you --user --dry-run
+aiplus profile install aiplus-work-with-me --user --dry-run
 ```
 
 Status and doctor:
@@ -22,13 +22,13 @@ aiplus profile doctor
 Disable for future sessions:
 
 ```bash
-aiplus profile disable aiplus-work-with-you --user --yes
+aiplus profile disable aiplus-work-with-me --user --yes
 ```
 
 Uninstall:
 
 ```bash
-aiplus profile uninstall aiplus-work-with-you --user --yes
+aiplus profile uninstall aiplus-work-with-me --user --yes
 ```
 
 All profile writes must stay under user-owned AiPlus config locations and must

@@ -1,15 +1,15 @@
 # Profile Recovery and Backup Guide
 
 Local-only recovery and backup guidance for an installed
-`aiplus-work-with-you` profile.
+`aiplus-work-with-me` profile.
 
 > Paths in this guide use `$PROFILE_SRC` for your local fork checkout and
 > `$PROFILE_INSTALLED` for the AiPlus-managed install directory. Set them
 > once and the recipes below copy verbatim:
 >
 > ```bash
-> export PROFILE_SRC="$HOME/Projects/aiplus-work-with-you"   # your fork checkout
-> export PROFILE_INSTALLED="$HOME/.config/aiplus/profiles/aiplus-work-with-you"
+> export PROFILE_SRC="$HOME/Projects/aiplus-work-with-me"   # your fork checkout
+> export PROFILE_INSTALLED="$HOME/.config/aiplus/profiles/aiplus-work-with-me"
 > ```
 
 ## Backup Strategy
@@ -48,7 +48,7 @@ Before running `aiplus profile install`:
 
 ```bash
 cp "$PROFILE_SRC/profile.toml" "$PROFILE_INSTALLED/profile.toml"
-aiplus profile doctor aiplus-work-with-you
+aiplus profile doctor aiplus-work-with-me
 ```
 
 ### Scenario 2: Missing Identity Files
@@ -68,7 +68,7 @@ cp "$PROFILE_SRC/.aiplus/manifest.json"      "$PROFILE_INSTALLED/.aiplus/"
 cp "$PROFILE_SRC/.aiplus/AGENTS.aiplus.md"   "$PROFILE_INSTALLED/.aiplus/"
 cp "$PROFILE_SRC/.aiplus/REFRESH_PROMPT.txt" "$PROFILE_INSTALLED/.aiplus/"
 cp "$PROFILE_SRC/.aiplus/identities/."       "$PROFILE_INSTALLED/.aiplus/identities/"
-aiplus profile doctor aiplus-work-with-you
+aiplus profile doctor aiplus-work-with-me
 ```
 
 ### Scenario 4: Sync Policy Errors
@@ -96,7 +96,7 @@ The profile is ignored for the current session only. Next session reverts to nor
 mv "$PROFILE_INSTALLED" "${PROFILE_INSTALLED}-backup-$(date +%Y%m%d)"
 
 # 2. Reinstall from source
-aiplus profile install aiplus-work-with-you --user --yes
+aiplus profile install aiplus-work-with-me --user --yes
 
 # 3. Manually sync supplemental files (until CLI supports full sync)
 cp -r "$PROFILE_SRC/USER.md"     \
@@ -110,7 +110,7 @@ cp -r "$PROFILE_SRC/USER.md"     \
 cp -r "$PROFILE_SRC/.aiplus" "$PROFILE_INSTALLED/"
 
 # 5. Verify
-aiplus profile doctor aiplus-work-with-you
+aiplus profile doctor aiplus-work-with-me
 ```
 
 ## Drift Detection
@@ -119,8 +119,8 @@ Compare source and installed profiles:
 
 ```bash
 #!/bin/bash
-SOURCE="${PROFILE_SRC:-$HOME/Projects/aiplus-work-with-you}"
-INSTALLED="${PROFILE_INSTALLED:-$HOME/.config/aiplus/profiles/aiplus-work-with-you}"
+SOURCE="${PROFILE_SRC:-$HOME/Projects/aiplus-work-with-me}"
+INSTALLED="${PROFILE_INSTALLED:-$HOME/.config/aiplus/profiles/aiplus-work-with-me}"
 
 echo "=== File Presence Drift ==="
 for file in profile.toml AGENTS.profile.md USER.md MEMORY.md; do
@@ -175,7 +175,7 @@ Never include in public assets or backups sent externally:
 
 - [ ] Source repo accessible
 - [ ] Backup tarball available (if created)
-- [ ] `profile doctor aiplus-work-with-you` passes
+- [ ] `profile doctor aiplus-work-with-me` passes
 - [ ] `identity list` shows expected roles
 - [ ] `identity context --role ceo` returns valid context
 - [ ] No secret values exposed in output

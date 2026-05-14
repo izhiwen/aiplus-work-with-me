@@ -1,7 +1,7 @@
 # MEMORY.md
 
 What should be remembered, synced, forgotten, superseded, or rejected in
-your `aiplus-work-with-you` profile hub.
+your `aiplus-work-with-me` profile hub.
 
 ## Memory Taxonomy
 
@@ -67,7 +67,7 @@ Use these exact categories:
 1. Current Owner message
 2. Project AGENTS.md / project rules
 3. Project-local `.aiplus/memory`
-4. `aiplus-work-with-you` profile hub
+4. `aiplus-work-with-me` profile hub
 5. Generic AiPlus guidance
 6. Model defaults
 

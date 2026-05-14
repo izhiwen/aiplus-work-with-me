@@ -38,7 +38,7 @@ Rules for handling private data, secrets, and public/private boundaries.
 | Level | Content | Where It Lives |
 |-------|---------|---------------|
 | Public | AiPlus CLI, public subproducts, docs, schemas | `aiplus-public`, `aiplus-auto-compact`, `aiplus-auto-team-consultant` |
-| Private | Owner preferences, project maps, role identities, workflow patterns | `aiplus-work-with-you` |
+| Private | Owner preferences, project maps, role identities, workflow patterns | `aiplus-work-with-me` |
 | Secret | API keys, tokens, passwords | Bitwarden Secrets Manager only |
 
 ## Boundary Rules

@@ -18,7 +18,7 @@ the profile. Each row is a check the agent or you should perform; fill in
 
 | Project | Check | Status | Evidence |
 |---------|-------|--------|----------|
-| `[Project A]` | Profile can be discovered or installed | _PENDING_ | `aiplus profile status` should show `profiles=[aiplus-work-with-you]`, installed=yes |
+| `[Project A]` | Profile can be discovered or installed | _PENDING_ | `aiplus profile status` should show `profiles=[aiplus-work-with-me]`, installed=yes |
 | `[Project B]` | Profile hub is discoverable | _PENDING_ | Project has (or can have) `.aiplus/memory/` for local memory integration |
 
 ### 2. USER / MEMORY Context Load

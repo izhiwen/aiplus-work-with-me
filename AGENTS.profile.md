@@ -1,4 +1,4 @@
-# aiplus-work-with-you
+# aiplus-work-with-me
 
 Public template for an AiPlus user-level working profile. Fork it, fill in
 the placeholders, install it once, and any AiPlus-aware agent on your
@@ -9,14 +9,14 @@ machine will read it.
 1. Current Owner message
 2. Project rules such as AGENTS.md, CLAUDE.md, or OpenCode project rules
 3. Project-local `.aiplus/memory/`
-4. `aiplus-work-with-you` profile hub
+4. `aiplus-work-with-me` profile hub
 5. AiPlus generic guidance
 6. Model defaults
 
 ## Profile Hub Structure
 
 ```
-aiplus-work-with-you/
+aiplus-work-with-me/
   README.md / README.zh-CN.md
   AGENTS.profile.md
   profile.toml
@@ -72,7 +72,7 @@ aiplus-work-with-you/
 
 ## Natural Language Mappings
 
-- "我的偏好生效了吗", "aiplus-work-with-you status", "work-with-you status",
+- "我的偏好生效了吗", "aiplus-work-with-me status", "work-with-you status",
   or "is my profile installed":
   run `aiplus profile status`.
 - "secret 状态", "看看 secret", "检查 API key", or "API key 是否可用":

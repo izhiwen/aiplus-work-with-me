@@ -8,7 +8,7 @@
 [[project]]
 name = "AiPlus"
 path = "~/Projects/AiPlus"
-repos = ["aiplus-public", "aiplus-auto-compact", "aiplus-auto-team-consultant", "aiplus-agent-memory", "aiplus-work-with-you"]
+repos = ["aiplus-public", "aiplus-auto-compact", "aiplus-auto-team-consultant", "aiplus-agent-memory", "aiplus-work-with-me"]
 type = "product-ecosystem"
 profile_scope = "full"
 
