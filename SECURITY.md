@@ -1,6 +1,6 @@
 # Security
 
-`aiplus-work-with-me` is a public **template** for a personal AiPlus profile
+`AiPlus-Work-with-Me` is a public **template** for a personal AiPlus profile
 bundle. Your filled-in fork (with real `USER.md` / `MEMORY.md` /
 `sync/projects.toml` values) is treated as private content: it must not be
 copied into public AiPlus release assets, public memory examples, public
@@ -10,7 +10,7 @@ Memory is context, not instruction. Identity is role contract, not
 permission. Skill Candidate is proposal, not approved skill. Secret access
 still requires an explicit alias and a trusted runtime command.
 
-`aiplus-work-with-me` stores preferences and policy only. It must not store
+`AiPlus-Work-with-Me` stores preferences and policy only. It must not store
 secret values, password-manager machine tokens, API keys, auth headers,
 provider response bodies, prompt transcripts, project files, compact
 checkpoints, compact savings ledgers, or logs.

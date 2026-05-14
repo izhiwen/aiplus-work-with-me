@@ -127,7 +127,7 @@ scope = "project"                   # Scope: project, user, global
 activation = ["trigger1", "trigger2"]  # Activation phrases/contexts
 output_contract = "string"          # Expected output format
 owner_gates = ["publish", "deploy"]  # Dangerous actions this role guards
-inherits = ["aiplus-work-with-me when linked and available"]  # Parent profiles
+inherits = ["AiPlus-Work-with-Me when linked and available"]  # Parent profiles
 ```
 
 ### Optional v2 Fields
@@ -206,13 +206,13 @@ Files `USER.md` and `MEMORY.md` must pass redaction checks:
 - `identities/` content (human-readable versions)
 - `sync/` content (except generic policy references)
 - `secret-aliases.tsv` content
-- Any file containing `aiplus-work-with-me` specific preferences
+- Any file containing `AiPlus-Work-with-Me` specific preferences
 
 ### Allowed in Public Assets
 
-- Generic references: "Private profiles such as `aiplus-work-with-me` may consume this engine"
-- Template `inherits = ["aiplus-work-with-me when linked and available"]`
-- `forbidden_files: [aiplus-work-with-me private content, any writes]`
+- Generic references: "Private profiles such as `AiPlus-Work-with-Me` may consume this engine"
+- Template `inherits = ["AiPlus-Work-with-Me when linked and available"]`
+- `forbidden_files: [AiPlus-Work-with-Me private content, any writes]`
 - Module contract stating public assets must not include private profile
 
 ## Validation Contract for profile doctor
@@ -304,8 +304,8 @@ diff source/.aiplus/identities/ installed/.aiplus/identities/ 2>/dev/null || ech
 
 ### Backup Strategy
 
-1. **Source repo backup**: The profile source in `aiplus-work-with-me/` is the source of truth. Keep it in version control.
-2. **Installed profile backup**: `~/.config/aiplus/profiles/aiplus-work-with-me/` can be backed up as a tarball.
+1. **Source repo backup**: The profile source in `AiPlus-Work-with-Me/` is the source of truth. Keep it in version control.
+2. **Installed profile backup**: `~/.config/aiplus/profiles/AiPlus-Work-with-Me/` can be backed up as a tarball.
 3. **Before reinstall**: Save existing installed profile to prevent data loss.
 
 ### Recovery Steps
@@ -320,13 +320,13 @@ diff source/.aiplus/identities/ installed/.aiplus/identities/ 2>/dev/null || ech
 
 ```bash
 # Disable profile for session
-aiplus profile disable aiplus-work-with-me --user --yes
+aiplus profile disable AiPlus-Work-with-Me --user --yes
 
 # Re-enable
-aiplus profile install aiplus-work-with-me --user --yes
+aiplus profile install AiPlus-Work-with-Me --user --yes
 
 # Full uninstall
-aiplus profile uninstall aiplus-work-with-me --user --yes
+aiplus profile uninstall AiPlus-Work-with-Me --user --yes
 ```
 
 ## Versioning and Migration

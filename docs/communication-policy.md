@@ -11,7 +11,7 @@ Default owner-facing style:
 
 Natural language triggers:
 
-- `我的偏好生效了吗`, `aiplus-work-with-me status`, `work-with-you status`,
+- `我的偏好生效了吗`, `AiPlus-Work-with-Me status`, `work-with-you status`,
   `检查我的 AiPlus profile` -> run `aiplus profile status`.
 - `secret 状态`, `看看 secret`, `检查 API key`, `API key 是否可用` -> run
   `aiplus secret-broker status` or `aiplus secret-broker doctor`.

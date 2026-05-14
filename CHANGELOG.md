@@ -2,7 +2,7 @@
 
 ## 0.4.0 — Public template
 
-- First public release of `aiplus-work-with-me` as a fork-and-personalize
+- First public release of `AiPlus-Work-with-Me` as a fork-and-personalize
   template for AiPlus user profile bundles.
 - Generalized identity, project map, and secret alias namespace into
   `[Your Name]`, `~/your-workspace`, and `[your-namespace]` placeholders.

@@ -20,7 +20,7 @@ Owner-facing communication style and natural-language trigger mappings.
 
 | Owner Says | Action |
 |------------|--------|
-| "我的偏好生效了吗", "aiplus-work-with-me status", "work-with-you status", "检查我的 AiPlus profile" | Run `aiplus profile status` |
+| "我的偏好生效了吗", "AiPlus-Work-with-Me status", "work-with-you status", "检查我的 AiPlus profile" | Run `aiplus profile status` |
 | "secret 状态", "看看 secret", "检查 API key", "API key 是否可用" | Run `aiplus secret-broker status` or `aiplus secret-broker doctor` |
 | "更新 AiPlus", "升级 AiPlus", "update AiPlus" | Run `aiplus update all` |
 | "保存进度", "准备 compact", "做个交接" | Run `aiplus compact prepare` |

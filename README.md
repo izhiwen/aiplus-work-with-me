@@ -25,7 +25,7 @@ agent can load when you cd into a project — and that you control.
 
 ## What this is
 
-`aiplus-work-with-me` is a **template repository** for that profile bundle.
+`AiPlus-Work-with-Me` is a **template repository** for that profile bundle.
 You fork it, fill in the placeholders, install it once with `aiplus profile
 install`, and every AiPlus-aware agent in every project on your machine
 inherits the same understanding of how you work.
@@ -53,8 +53,8 @@ Aliases and policy only. See [SECURITY.md](SECURITY.md).
 
 ```bash
 # 1. Fork or clone this repo somewhere local (not inside a project tree)
-git clone https://github.com/<your-account>/aiplus-work-with-me.git
-cd aiplus-work-with-me
+git clone https://github.com/<your-account>/AiPlus-Work-with-Me.git
+cd AiPlus-Work-with-Me
 
 # 2. Personalize the placeholders
 #    USER.md            — name, workspace, language, gates
@@ -64,7 +64,7 @@ cd aiplus-work-with-me
 #    secret-aliases.tsv — your Bitwarden alias namespace
 
 # 3. Install as a user-level AiPlus profile
-aiplus profile install aiplus-work-with-me --user --yes
+aiplus profile install AiPlus-Work-with-Me --user --yes
 ```
 
 Verify:
@@ -114,7 +114,7 @@ session. See [docs/owner-gates.md](docs/owner-gates.md).
 
 ## Relationship to other AiPlus modules
 
-`aiplus-work-with-me` is the user-profile bundle layer. It composes with:
+`AiPlus-Work-with-Me` is the user-profile bundle layer. It composes with:
 
 - **`aiplus-agent-memory`** — the project-local JSONL memory engine. This
   profile sets the taxonomy and sync rules; agent-memory stores the actual
@@ -136,7 +136,7 @@ Recommended pattern:
 ```bash
 # Fork on GitHub (public template) → clone your private fork (or rename it
 # aiplus-work-with-<your-name> and flip visibility to private)
-gh repo fork izhiwen/aiplus-work-with-me --clone --fork-name aiplus-work-with-<your-name>
+gh repo fork izhiwen/AiPlus-Work-with-Me --clone --fork-name aiplus-work-with-<your-name>
 gh repo edit izhiwen/aiplus-work-with-<your-name> --visibility private
 ```
 

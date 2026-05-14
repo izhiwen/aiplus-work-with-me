@@ -1,6 +1,6 @@
 # Sync Policy
 
-Cross-project sync rules and priority for the `aiplus-work-with-me`
+Cross-project sync rules and priority for the `AiPlus-Work-with-Me`
 profile hub.
 
 ## Automatic Sync Rules
@@ -39,7 +39,7 @@ profile hub.
 1. Current Owner message
 2. Project AGENTS.md / project rules
 3. Project-local .aiplus/memory
-4. aiplus-work-with-me profile hub
+4. AiPlus-Work-with-Me profile hub
 5. Generic AiPlus guidance
 6. Model defaults
 ```

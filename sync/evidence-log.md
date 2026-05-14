@@ -26,10 +26,10 @@ placeholder showing the schema. Delete it when you start logging real runs.
 
 - Date: YYYY-MM-DD
 - Cycle: initial-install
-- Description: First install of personal `aiplus-work-with-me` fork after
+- Description: First install of personal `AiPlus-Work-with-Me` fork after
   filling in `USER.md`, `sync/projects.toml`, and `secret-aliases.tsv`.
 - Commands run:
-    aiplus profile install aiplus-work-with-me --user --yes
+    aiplus profile install AiPlus-Work-with-Me --user --yes
     aiplus profile status
     aiplus profile doctor
     aiplus doctor

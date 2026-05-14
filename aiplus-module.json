@@ -41,7 +41,7 @@
   ],
   "runtimeAdapters": [],
   "installHints": [
-    "Fork this repository, fill in the [Your Name] / ~/your-workspace / [your-namespace] placeholders, then install with `aiplus profile install aiplus-work-with-me --user --yes`.",
+    "Fork this repository, fill in the [Your Name] / ~/your-workspace / [your-namespace] placeholders, then install with `aiplus profile install AiPlus-Work-with-Me --user --yes`.",
     "Profile content describes preferences. It does not grant permission for dangerous actions."
   ],
   "doctorChecks": [
