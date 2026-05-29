@@ -51,34 +51,24 @@ cp "$PROFILE_SRC/profile.toml" "$PROFILE_INSTALLED/profile.toml"
 aiplus profile doctor AiPlus-Work-with-Me
 ```
 
-### Scenario 2: Missing Identity Files
+### Scenario 2: Missing `.aiplus/` Directory in Installed Profile
 
 ```bash
-cp -r "$PROFILE_SRC/identities/." "$PROFILE_INSTALLED/identities/"
-mkdir -p "$PROFILE_INSTALLED/.aiplus/identities"
-cp -r "$PROFILE_SRC/.aiplus/identities/." "$PROFILE_INSTALLED/.aiplus/identities/"
-aiplus identity list
-```
-
-### Scenario 3: Missing `.aiplus/` Directory in Installed Profile
-
-```bash
-mkdir -p "$PROFILE_INSTALLED/.aiplus/identities" "$PROFILE_INSTALLED/.aiplus/memory"
+mkdir -p "$PROFILE_INSTALLED/.aiplus/memory"
 cp "$PROFILE_SRC/.aiplus/manifest.json"      "$PROFILE_INSTALLED/.aiplus/"
 cp "$PROFILE_SRC/.aiplus/AGENTS.aiplus.md"   "$PROFILE_INSTALLED/.aiplus/"
 cp "$PROFILE_SRC/.aiplus/REFRESH_PROMPT.txt" "$PROFILE_INSTALLED/.aiplus/"
-cp "$PROFILE_SRC/.aiplus/identities/."       "$PROFILE_INSTALLED/.aiplus/identities/"
 aiplus profile doctor AiPlus-Work-with-Me
 ```
 
-### Scenario 4: Sync Policy Errors
+### Scenario 3: Sync Policy Errors
 
 ```bash
 cp "$PROFILE_SRC/sync/policy.toml" "$PROFILE_INSTALLED/sync/policy.toml"
 python3 -c "import tomllib; tomllib.load(open('$PROFILE_INSTALLED/sync/policy.toml', 'rb'))"
 ```
 
-### Scenario 5: Session Opt-Out
+### Scenario 4: Session Opt-Out
 
 No file changes needed. Simply say in the session:
 
@@ -89,7 +79,7 @@ No file changes needed. Simply say in the session:
 
 The profile is ignored for the current session only. Next session reverts to normal.
 
-### Scenario 6: Full Profile Reset
+### Scenario 5: Full Profile Reset
 
 ```bash
 # 1. Backup current
@@ -102,7 +92,6 @@ aiplus profile install AiPlus-Work-with-Me --user --yes
 cp -r "$PROFILE_SRC/USER.md"     \
       "$PROFILE_SRC/MEMORY.md"   \
       "$PROFILE_SRC/preferences" \
-      "$PROFILE_SRC/identities"  \
       "$PROFILE_SRC/sync"        \
       "$PROFILE_INSTALLED/"
 
@@ -133,22 +122,13 @@ done
 
 echo ""
 echo "=== Directory Drift ==="
-for dir in preferences identities sync docs .aiplus; do
+for dir in preferences sync docs .aiplus; do
   if [ -d "$SOURCE/$dir" ] && [ -d "$INSTALLED/$dir" ]; then
     echo "PASS $dir/ (both present)"
   elif [ -d "$SOURCE/$dir" ] && [ ! -d "$INSTALLED/$dir" ]; then
     echo "DRIFT $dir/ (missing in installed)"
   fi
 done
-
-echo ""
-echo "=== Identity File Drift ==="
-if [ -d "$SOURCE/.aiplus/identities" ] && [ -d "$INSTALLED/.aiplus/identities" ]; then
-  diff <(ls "$SOURCE/.aiplus/identities/" | sort) <(ls "$INSTALLED/.aiplus/identities/" | sort) \
-    && echo "PASS identities match" || echo "DRIFT identity files differ"
-else
-  echo "DRIFT .aiplus/identities/ missing in installed"
-fi
 ```
 
 ## What NOT to Publish
@@ -158,7 +138,6 @@ Never include in public assets or backups sent externally:
 - Filled-in `USER.md` content
 - Filled-in `MEMORY.md` content
 - Filled-in `preferences/` content
-- Filled-in `identities/` content (human-readable)
 - `sync/projects.toml` with real project paths
 - `secret-aliases.tsv` with your real vault namespace
 - `.aiplus/memory/` contents
@@ -167,16 +146,12 @@ Never include in public assets or backups sent externally:
 ## Known Limitations
 
 1. `aiplus profile install` does not automatically sync `.aiplus/` directory or supplemental files.
-2. Identity dual-track requires manual sync of both `identities/` and `.aiplus/identities/`.
-3. `user context` command outputs full `USER.md` content (local only, but be aware).
-4. CLI supports only 4 core roles for `identity context` (advisor, ceo, reviewer, builder).
+2. `user context` command outputs full `USER.md` content (local only, but be aware).
 
 ## Recovery Checklist
 
 - [ ] Source repo accessible
 - [ ] Backup tarball available (if created)
 - [ ] `profile doctor AiPlus-Work-with-Me` passes
-- [ ] `identity list` shows expected roles
-- [ ] `identity context --role ceo` returns valid context
 - [ ] No secret values exposed in output
 - [ ] Global config untouched

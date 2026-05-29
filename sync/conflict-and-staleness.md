@@ -25,12 +25,6 @@ Conflict resolution and memory expiry rules.
 - Resolution: Project-local wins for project-specific facts; profile hub wins for universal preferences.
 - If ambiguous, BLOCK and ask Owner.
 
-### Role Identity Conflict
-
-- Two role identities have conflicting behaviors.
-- Resolution: Current task's primary role wins. If no primary role, CEO decides.
-- Log conflict in `sync/evidence-log.md`.
-
 ## Conflict Behavior
 
 | Risk Level | Behavior |
@@ -68,7 +62,6 @@ A memory is considered stale when:
 
 - Newer explicit Owner correction contradicts old preference.
 - A better abstraction replaces a project-specific pattern.
-- A role identity is refined.
 
 ### Supersession Process
 

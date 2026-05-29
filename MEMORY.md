@@ -15,7 +15,6 @@ Use these exact categories:
 | PROFILE_CONTEXT | Personal Owner profile context (private to you) | Profile hub only | 用户语言偏好、项目地图 |
 | PROJECT_PATTERN | Reusable lesson abstracted from one project | Profile hub (candidate) | "两个项目都遇到同样问题，抽象成通用模式" |
 | PROJECT_LOCAL | Fact specific to one project; must not sync globally | Project-local `.aiplus/memory/` | "AppModules 的某某模块路径是 X" |
-| ROLE_CONTRACT | CEO/Advisor/Reviewer/QA identity behavior | Profile hub `identities/` | CEO 应该做任务拆分而不是自己写所有代码 |
 | SKILL_CANDIDATE | Proposed skill only; not approved skill | Profile hub `sync/evidence-log.md` | "建议把某某流程做成 skill" |
 | DENY_MEMORY | Content that must never be stored or synced | Nowhere | API keys、密码、原始 transcript |
 
@@ -23,9 +22,8 @@ Use these exact categories:
 
 1. **Owner explicit universal preference**: When Owner says "以后所有项目"、"以后都"、"默认"、"我的通用偏好"、"所有 CEO"、"所有 Advisor" — create or update GLOBAL_PREFERENCE.
 2. **Repeated correction**: When Owner corrects the same behavior in two or more projects — create PROJECT_PATTERN candidate, then promote to GLOBAL_PREFERENCE after abstraction.
-3. **Role identity refinement**: When a role behavior is clarified or corrected — update ROLE_CONTRACT in `identities/`.
-4. **Project fact**: Store in project-local `.aiplus/memory/` only. Do not sync to profile hub.
-5. **Skill proposal**: Log as SKILL_CANDIDATE in `sync/evidence-log.md`. Do not auto-create skill files.
+3. **Project fact**: Store in project-local `.aiplus/memory/` only. Do not sync to profile hub.
+4. **Skill proposal**: Log as SKILL_CANDIDATE in `sync/evidence-log.md`. Do not auto-create skill files.
 
 ## Sync Rules
 

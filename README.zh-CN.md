@@ -4,7 +4,7 @@
 [English README](README.md)
 
 为 AiPlus 设计的便携式用户 profile bundle。解决跨项目、跨 session 的失忆问题：
-让 agent 记住 *你* 的协作风格、项目地图、角色身份、工具偏好，而不需要你每次新
+让 agent 记住 *你* 的协作风格、项目地图、工具偏好，而不需要你每次新
 session、每次新仓库都重新讲一遍。
 
 ## 痛点
@@ -26,13 +26,11 @@ session、每次新仓库都重新讲一遍。
 填好占位符、用 `aiplus profile install` 安装一次，从此机器上所有 AiPlus-aware
 agent、所有项目都共享同一套 "如何与你协作" 的理解。
 
-它保存五类内容：
+它保存四类内容：
 
 - **`USER.md`** —— 稳定的 Owner 信息：姓名、主工作目录、语言、决策权限、危险动作 gates。
 - **`preferences/`** —— 五个主题的偏好文档：communication、engineering、CEO/review、
   tools-and-runtimes、privacy-and-secrets。
-- **`identities/`** —— 七个角色身份契约（CEO / Advisor / Rust Lead / Runtime QA /
-  Security Reviewer / Reviewer / Builder）。可复用的角色脚手架。
 - **`sync/`** —— 跨项目同步策略、项目注册表、提升规则、冲突/陈旧处理。决定哪些是
   通用偏好、哪些只属于单个项目。
 - **`MEMORY.md`** —— memory taxonomy 和 remember / sync / forget / supersede /
@@ -83,8 +81,6 @@ aiplus doctor
 | 忘掉这个 / "forget this" | 按 memory id forget；不明确时先问 |
 | 你记住了什么 / "what do you remember" | memory status |
 | 这次用了哪些记忆 / "which memories were used" | memory context |
-| 新开顾问 / "new advisor" | 加载 advisor identity context |
-| 新开 CEO / "new CEO" | 加载 CEO identity context |
 | 把这次经验沉淀成 skill / "make this a skill" | 创建 Skill Candidate（不是 approved skill）|
 | 不要用我的私人记忆 / 本次忽略我的偏好 | 本 session opt-out |
 

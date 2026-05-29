@@ -53,7 +53,6 @@ global_tooling_hint = { sync = "profile_hub", auto_sync = true }
 profile_context = { sync = "profile_hub_only", auto_sync = true }
 project_pattern = { sync = "profile_hub_candidate", auto_sync = "after_abstraction" }
 project_local = { sync = "project_local_only", auto_sync = false }
-role_contract = { sync = "profile_hub_identities", auto_sync = true }
 skill_candidate = { sync = "profile_hub_evidence_log", auto_sync = false }
 deny_memory = { sync = "nowhere", auto_sync = false }
 
