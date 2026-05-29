@@ -5,7 +5,7 @@ Status: DRAFT for Platform CEO review
 
 ## Overview
 
-This document defines the schema contract for a complete private profile bundle in the AiPlus ecosystem. A profile bundle is a directory containing Owner preferences, role identities, memory policy, and sync rules. It is local/private by default and must never leak into public release assets.
+This document defines the schema contract for a complete private profile bundle in the AiPlus ecosystem. A profile bundle is a directory containing Owner preferences, memory policy, and sync rules. It is local/private by default and must never leak into public release assets.
 
 ## Required Files
 
@@ -23,7 +23,6 @@ This document defines the schema contract for a complete private profile bundle 
 | `USER.md` | Markdown | Stable Owner profile and collaboration preferences | `USER.md present`, `non-empty`, `redaction clean` |
 | `MEMORY.md` | Markdown | Memory taxonomy, sync/forget/supersede rules | `MEMORY.md present`, `non-empty`, `redaction clean` |
 | `preferences/` | Directory | Topic-based preference docs | `preferences/ present`, `valid` |
-| `identities/` | Directory | Role identity TOML files | `identities/ present`, each `.toml` `valid` |
 | `sync/` | Directory | Cross-project sync policy and evidence | `sync/ present`, `has policy or docs` |
 
 ### Optional Files
@@ -60,7 +59,6 @@ profile_toml = "profile.toml"
 user_snapshot = "USER.md"          # Optional but recommended
 memory_snapshot = "MEMORY.md"      # Optional but recommended
 preferences_dir = "preferences/"   # Optional
-identities_dir = "identities/"     # Optional
 sync_dir = "sync/"                 # Optional
 docs_dir = "docs/"                 # Optional
 security = "SECURITY.md"           # Optional
@@ -71,11 +69,6 @@ secret_aliases = "secret-aliases.tsv"  # Optional
 communication = "preferences/communication.md"
 engineering = "preferences/engineering.md"
 # ... other preference files
-
-[structure.identities]
-ceo = "identities/ceo.identity.toml"
-advisor = "identities/advisor.identity.toml"
-# ... other identity files
 
 [structure.sync]
 policy = "sync/policy.toml"
@@ -114,47 +107,6 @@ raw_transcripts_in_profile = "forbidden"
 compact_checkpoints_in_profile = "forbidden"
 logs_in_profile = "forbidden"
 ```
-
-## Identity TOML Schema
-
-### Required Fields
-
-```toml
-id = "aiplus.{role}.default"       # Unique identity ID
-role = "string"                     # Role name (CEO, Advisor, Builder, etc.)
-version = "0.2.0"                   # Schema version
-scope = "project"                   # Scope: project, user, global
-activation = ["trigger1", "trigger2"]  # Activation phrases/contexts
-output_contract = "string"          # Expected output format
-owner_gates = ["publish", "deploy"]  # Dangerous actions this role guards
-inherits = ["AiPlus-Work-with-Me when linked and available"]  # Parent profiles
-```
-
-### Optional v2 Fields
-
-```toml
-role_contract = "string"            # Human-readable role description
-scope_boundaries = ["string"]       # Scope limitations
-current_responsibilities = ["string"]  # Active responsibilities
-allowed_actions = ["string"]        # Permitted actions
-forbidden_actions = ["string"]      # Prohibited actions
-memory_retrieval_policy = "string"  # What memory to load
-owner_gate_policy = "string"        # How to handle Owner gates
-result_packet_expectations = ["string"]  # Expected result packet fields
-```
-
-### CLI Validation
-
-The CLI checks each identity file for:
-- `valid`: File is non-empty and contains `name =` and `role =` fields
-- `has owner gate`: File contains `owner_gate` or `ownerGate` text
-
-### CLI-Compatible vs Human-Readable
-
-- **`.aiplus/identities/`**: CLI-compatible TOML matching `RoleIdentity` struct
-- **`identities/`**: Human-readable TOML with rich sections (`[contract]`, `[behavior]`, `[forbidden]`)
-
-Both should coexist. The CLI reads from `.aiplus/identities/`. Humans read from `identities/`.
 
 ## Sync Policy Schema
 
@@ -203,7 +155,6 @@ Files `USER.md` and `MEMORY.md` must pass redaction checks:
 - `USER.md` content
 - `MEMORY.md` content
 - `preferences/` content
-- `identities/` content (human-readable versions)
 - `sync/` content (except generic policy references)
 - `secret-aliases.tsv` content
 - Any file containing `AiPlus-Work-with-Me` specific preferences
@@ -235,7 +186,6 @@ Files `USER.md` and `MEMORY.md` must pass redaction checks:
 | `MEMORY.md non-empty` | File has content |
 | `MEMORY.md redaction clean` | No unredacted secret patterns |
 | `preferences/ valid` | Directory exists and contains structured .md files |
-| `identities/ valid` | Directory exists and all .toml files are valid |
 | `sync/ has policy or docs` | Contains policy.toml or README.md |
 | `sync/policy.toml parseable` | Valid TOML syntax (if policy.toml exists) |
 | `private content not in public assets` | Manual review required |
@@ -246,7 +196,6 @@ Files `USER.md` and `MEMORY.md` must pass redaction checks:
 |-------|----------|
 | `secret_values=none` | No secrets detected |
 | `global_agent_config_edits=none` | No global config changes |
-| `identity context --role {role}` | Returns valid identity context |
 | `profile status` | Shows installed=yes |
 
 ## Template Self-Check (run on your fork)
@@ -258,7 +207,6 @@ Files `USER.md` and `MEMORY.md` must pass redaction checks:
 | `USER.md` | Present, placeholders replaced with your values | manual review |
 | `MEMORY.md` | Present, redaction clean | grep for forbidden tokens |
 | `preferences/` | 5 topic files, all non-empty | `ls preferences/` |
-| `identities/` | 7 role files, all valid, all have owner gates | `aiplus identity list` |
 | `sync/` | `policy.toml` parseable, all 6 files present | `aiplus profile doctor` |
 | Private boundary | No filled-in personal content in any public branch | manual review before push |
 | Secret boundary | No secret values in profile files | `rg "sk-\|BEGIN .*PRIVATE KEY\|Authorization:\|Bearer "` |
@@ -276,17 +224,16 @@ Does NOT automatically copy:
 - `USER.md`
 - `MEMORY.md`
 - `preferences/`
-- `identities/`
 - `sync/`
-- `.aiplus/` (including `.aiplus/identities/`)
+- `.aiplus/`
 
 ### Expected Full Bundle Install
 
 Future CLI should copy all supplemental files:
 - Core: `AGENTS.profile.md`, `profile.toml`
 - Supplemental: `USER.md`, `MEMORY.md`
-- Directories: `preferences/`, `identities/`, `sync/`
-- CLI integration: `.aiplus/` (manifest, identities, refresh prompt)
+- Directories: `preferences/`, `sync/`
+- CLI integration: `.aiplus/` (manifest, refresh prompt)
 
 ### Drift Detection
 
@@ -294,10 +241,6 @@ After install, compare source vs installed:
 ```bash
 # Check file presence
 diff <(ls source/ | sort) <(ls installed/ | sort)
-
-# Check identity files
-diff source/identities/ installed/identities/
-diff source/.aiplus/identities/ installed/.aiplus/identities/ 2>/dev/null || echo "MISSING"
 ```
 
 ## Backup and Recovery
@@ -311,10 +254,8 @@ diff source/.aiplus/identities/ installed/.aiplus/identities/ 2>/dev/null || ech
 ### Recovery Steps
 
 1. **Corrupted profile.toml**: Restore from source repo or backup.
-2. **Missing identity files**: Re-run `aiplus profile install` or manually copy from source.
-3. **Missing .aiplus/identities/**: Copy from source repo `.aiplus/identities/` to installed profile.
-4. **Sync policy errors**: Restore `sync/policy.toml` from source or backup.
-5. **Session opt-out**: Say "本次忽略我的偏好" to disable profile for current session without modifying files.
+2. **Sync policy errors**: Restore `sync/policy.toml` from source or backup.
+3. **Session opt-out**: Say "本次忽略我的偏好" to disable profile for current session without modifying files.
 
 ### Rollback
 
@@ -334,26 +275,24 @@ aiplus profile uninstall AiPlus-Work-with-Me --user --yes
 ### Schema Versioning
 
 - `profile.toml` `version` field tracks profile bundle version
-- Identity files use `version = "0.2.0"` for CLI compatibility
 - Schema changes should update version and CHANGELOG.md
 
 ### Migration Notes
 
-- v0.2.x → v0.3.0: Added profile hub structure (USER.md, MEMORY.md, preferences/, identities/, sync/)
-- v0.3.0 → v0.3.1: Added PROFILE_BUNDLE_SCHEMA.md, CLI-compatible identities, proper TOML policy
-- Future: Consider unifying identity dual-track or adding full supplemental install sync
+- v0.2.x → v0.3.0: Added profile hub structure (USER.md, MEMORY.md, preferences/, sync/)
+- v0.3.0 → v0.3.1: Added PROFILE_BUNDLE_SCHEMA.md and proper TOML policy
+- v0.4.0: Removed role identity contracts (`identities/` and `.aiplus/identities/`); role definitions move to project-level agent-team personas
+- Future: Consider adding full supplemental install sync
 
 ## Gaps and Recommendations
 
 1. **CLI install sync**: `aiplus profile install` copies only `AGENTS.profile.md` and `profile.toml`. Full supplemental sync not implemented.
-2. **Identity schema dualism**: Two versions of identity files (human-readable vs CLI-compatible). Installed profile lacks `.aiplus/identities/`.
-3. **policy.toml redaction**: Future policy docs should avoid redaction trigger words in TOML values.
-4. **MEMORY.md redaction sensitivity**: Strict redaction check requires careful wording.
+2. **policy.toml redaction**: Future policy docs should avoid redaction trigger words in TOML values.
+3. **MEMORY.md redaction sensitivity**: Strict redaction check requires careful wording.
 
 ## Next Steps
 
 1. Platform CEO review of this schema contract
 2. Decide if `aiplus profile install` should sync full bundle
-3. Decide if identity dualism should be unified
-4. Add `.aiplus/` to install scope
-5. Update CLI `profile doctor` if schema changes approved
+3. Add `.aiplus/` to install scope
+4. Update CLI `profile doctor` if schema changes approved

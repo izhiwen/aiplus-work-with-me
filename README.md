@@ -5,7 +5,7 @@
 
 A portable user-profile bundle for AiPlus. Solves cross-project, cross-session
 amnesia: your agent remembers _you_ — your collaboration style, your project
-map, your role identities, your tooling preferences — without you re-stating
+map, your tooling preferences — without you re-stating
 them in every new session or every new repo.
 
 ## The pain
@@ -30,16 +30,13 @@ You fork it, fill in the placeholders, install it once with `aiplus profile
 install`, and every AiPlus-aware agent in every project on your machine
 inherits the same understanding of how you work.
 
-It carries five kinds of context:
+It carries four kinds of context:
 
 - **`USER.md`** — your stable Owner profile: name, primary workspace,
   language, decision authority, dangerous-action gates.
 - **`preferences/`** — five topic-sliced preference docs: communication
   style, engineering taste, CEO/review workflow, tools and runtimes, privacy
   and secrets.
-- **`identities/`** — seven role identity contracts (CEO, Advisor, Rust
-  Lead, Runtime QA, Security Reviewer, Reviewer, Builder). Reusable role
-  scaffolding for orchestrated agents.
 - **`sync/`** — cross-project sync rules, project registry, promotion rules,
   conflict/staleness handling. Decides what is universal vs. project-local.
 - **`MEMORY.md`** — memory taxonomy and the remember / sync / forget /
@@ -91,8 +88,6 @@ either Chinese or English) map to memory operations:
 | 忘掉这个 / "forget this" | Forget by memory id; ask if ambiguous |
 | 你记住了什么 / "what do you remember" | Memory status |
 | 这次用了哪些记忆 / "which memories were used" | Memory context dump |
-| 新开顾问 / "new advisor" | Load advisor identity context |
-| 新开 CEO / "new CEO" | Load CEO identity context |
 | 把这次经验沉淀成 skill / "make this a skill" | Skill Candidate proposal only |
 | 不要用我的私人记忆 / 本次忽略我的偏好 | Session-local opt-out |
 

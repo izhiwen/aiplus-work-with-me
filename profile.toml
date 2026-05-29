@@ -12,7 +12,6 @@ profile_toml = "profile.toml"
 user_snapshot = "USER.md"
 memory_snapshot = "MEMORY.md"
 preferences_dir = "preferences/"
-identities_dir = "identities/"
 sync_dir = "sync/"
 docs_dir = "docs/"
 security = "SECURITY.md"
@@ -25,15 +24,6 @@ engineering = "preferences/engineering.md"
 ceo_and_review = "preferences/ceo-and-review.md"
 tools_and_runtimes = "preferences/tools-and-runtimes.md"
 privacy_and_secrets = "preferences/privacy-and-secrets.md"
-
-[structure.identities]
-ceo = "identities/ceo.identity.toml"
-advisor = "identities/advisor.identity.toml"
-rust_lead = "identities/rust-lead.identity.toml"
-runtime_qa = "identities/runtime-qa.identity.toml"
-security_reviewer = "identities/security-reviewer.identity.toml"
-reviewer = "identities/reviewer.identity.toml"
-builder = "identities/builder.identity.toml"
 
 [structure.sync]
 policy = "sync/policy.toml"

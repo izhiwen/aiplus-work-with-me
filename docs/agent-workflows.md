@@ -24,8 +24,6 @@ Agent Continuity natural-language mapping:
 - `只在这个项目用`: project memory.
 - `忘掉这个`: `aiplus memory forget <id>`, or ask which memory if ambiguous.
 - `你记住了什么` / `这次用了哪些记忆`: `aiplus memory status` and context.
-- `新开顾问` / `新开 advisor`: advisor Role Identity context.
-- `新开 CEO`: CEO Role Identity context.
 - `把这次经验沉淀成 skill`: Skill Candidate, not approved skill.
 - `不要用我的私人记忆` / `本次忽略我的偏好`: session-local opt-out only.
 

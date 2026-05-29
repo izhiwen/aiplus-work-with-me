@@ -62,7 +62,6 @@ profile hub.
 | PROFILE_CONTEXT | Profile hub only | Yes, private only | "Owner 的语言偏好" |
 | PROJECT_PATTERN | Profile hub (candidate) | Yes, after abstraction | "两个项目都遇到同个问题" |
 | PROJECT_LOCAL | Project-local only | No | "AppModules 的模块路径" |
-| ROLE_CONTRACT | Profile hub `identities/` | Yes, role behavior only | "CEO 应拆分任务" |
 | SKILL_CANDIDATE | Profile hub evidence-log | No, candidate only | "建议做成 skill" |
 | DENY_MEMORY | Nowhere | No | API keys, passwords |
 

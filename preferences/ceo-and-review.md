@@ -16,7 +16,7 @@ Preferences for CEO orchestration, review workflows, and goal management.
 | Tier | Use For | Max Discussion Rounds |
 |------|---------|----------------------|
 | LIGHT | Small wording/doc fixes, one profile file, one scan, narrow validation | 1 |
-| MEDIUM | Profile structure, role identity set, sync policy, dogfood matrix, docs integration, focused QA | 3 |
+| MEDIUM | Profile structure, sync policy, dogfood matrix, docs integration, focused QA | 3 |
 | HEAVY | Cross-project dogfood, private/public boundary review, memory sync policy, multi-agent review cycles, unresolved conflicts | 5 |
 
 ## Task Cards

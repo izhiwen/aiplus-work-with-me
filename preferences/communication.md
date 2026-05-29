@@ -30,8 +30,6 @@ Owner-facing communication style and natural-language trigger mappings.
 | "只在这个项目用" | Project memory only |
 | "忘掉这个" | Forget by memory ID; ask which ID if ambiguous |
 | "你记住了什么" / "这次用了哪些记忆" | Memory status and context |
-| "新开顾问" / "新开 advisor" | Load advisor identity context |
-| "新开 CEO" | Load CEO identity context |
 | "把这次经验沉淀成 skill" | Create Skill Candidate only |
 | "不要用我的私人记忆" / "本次忽略我的偏好" | Session-local opt-out |
 

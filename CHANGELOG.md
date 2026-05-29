@@ -12,7 +12,12 @@
 - Added `aiplus-module.json` manifest declaring the public-template boundary.
 - No `compatibility_aliases` carried forward — this is a fresh public
   template, not a renamed private profile.
-- Profile structure preserved: USER.md / MEMORY.md / preferences/ /
-  identities/ / sync/ / docs/, all with the v0.3.1 schema contract.
+- Profile structure: USER.md / MEMORY.md / preferences/ / sync/ / docs/,
+  all with the v0.3.1 schema contract.
+- Carries no role identity contracts: there is no `identities/` directory.
+  Role definitions live at the project level (agent-team personas); this
+  bundle holds cross-project Owner preferences, memory taxonomy, and sync
+  rules only. The `ROLE_CONTRACT` memory category folds into
+  `GLOBAL_WORKFLOW` / `GLOBAL_PREFERENCE`.
 - No secrets, no provider payloads, no real project paths committed in this
   template; users must fill in their own values after forking.

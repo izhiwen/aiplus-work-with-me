@@ -44,8 +44,8 @@ Stable Owner profile and collaboration preferences.
 - Your project list lives in `sync/projects.toml`. Edit that file (not this
   one) to register your local projects and their profile scope.
 - Profile content (your filled-in `USER.md`, `MEMORY.md`, `preferences/`,
-  `identities/`, `sync/projects.toml`) must never be copied into a public
-  AiPlus release asset.
+  `sync/projects.toml`) must never be copied into a public AiPlus release
+  asset.
 
 ## Session Opt-Out
 

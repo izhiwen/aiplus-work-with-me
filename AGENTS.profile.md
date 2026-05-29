@@ -28,14 +28,6 @@ AiPlus-Work-with-Me/
     ceo-and-review.md  # CEO orchestration and review workflow preferences
     tools-and-runtimes.md  # Preferred tools, CLI patterns, model habits
     privacy-and-secrets.md # Privacy boundaries and secret handling
-  identities/
-    ceo.identity.toml
-    advisor.identity.toml
-    rust-lead.identity.toml
-    runtime-qa.identity.toml
-    security-reviewer.identity.toml
-    reviewer.identity.toml
-    builder.identity.toml
   sync/
     policy.toml        # Cross-project sync rules and priority
     projects.toml      # Local project registry (TEMPLATE — fill in your projects)
@@ -58,7 +50,6 @@ AiPlus-Work-with-Me/
     manifest.json      # Profile-only stub manifest
     AGENTS.aiplus.md   # AiPlus refresh entry point
     REFRESH_PROMPT.txt # Refresh prompt
-    identities/        # CLI-readable identity files
     memory/            # Local memory directory
 ```
 
@@ -123,17 +114,3 @@ project paths and scopes. Example template values:
 - For large goals, act as CEO orchestrator: split tasks, delegate where useful,
   integrate, verify, and report with evidence.
 - Do not call work complete without concrete QA, scans, and a final audit.
-
-## Role Identity Quick Reference
-
-| Role | File | Responsibility |
-|------|------|---------------|
-| CEO | `identities/ceo.identity.toml` | Goal setting, task decomposition, delegation, integration |
-| Advisor | `identities/advisor.identity.toml` | Direction, tradeoffs, strategy, boundaries |
-| Rust Lead | `identities/rust-lead.identity.toml` | Rust architecture, CLI/core boundary, release readiness |
-| Runtime QA | `identities/runtime-qa.identity.toml` | Command dogfood, reproducible evidence, bug classification |
-| Security Reviewer | `identities/security-reviewer.identity.toml` | Boundary checks, Owner gates, secret scan |
-| Reviewer | `identities/reviewer.identity.toml` | Findings first, severity ordered, evidence verification |
-| Builder | `identities/builder.identity.toml` | Scoped local implementation, file claim respect |
-
-Identity is role contract, not permission.

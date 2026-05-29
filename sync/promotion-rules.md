@@ -14,11 +14,6 @@ Project memory -> profile memory promotion rules.
    - Action: Create PROJECT_PATTERN candidate in profile hub. After abstraction and Owner confirmation (or implicit acceptance), promote to GLOBAL_PREFERENCE.
    - Evidence: Log projects involved and the pattern.
 
-3. **Role identity refinement**
-   - Trigger: Owner clarifies or corrects a role behavior.
-   - Action: Update ROLE_CONTRACT in `identities/{role}.identity.toml`.
-   - Evidence: Log the refinement.
-
 ## Promotion Process
 
 ```
